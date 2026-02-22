@@ -1,12 +1,21 @@
 #include<iostream>
 #include<vector>
+#include<iomanip> 
+#include "calculator.h"
+#include "GradeUtils.h"
 using namespace std;
 
 void display();
+int input_course_detail();
+double sgpaCalculator(int total_num_course);
 
 int main(){
 
     display();
+
+    int total_course = input_course_detail();
+
+    double final_sgpa = sgpaCalculator(total_course);
 
     return 0;
 }
@@ -15,25 +24,16 @@ void display(){
     cout<<"\n***********************************************************************\n";
     cout<<"\tWelcome To DU Academic Performance Calculator(SGPA/CGPA)";
     cout<<"\n***********************************************************************\n";
+}
 
-    int num_Course;
-    cout<<"\nEnter a Number of Courses You Enrolled : ";
-    cin>>num_Course;
+int  input_course_detail(){
+    int num_course;
+    cout<<"Enter the Number of Course Enrolled : ";
+    cin>>num_course;
+    return num_course;
+}
 
-    //Checking invalid Negative Input Course
-    if(num_Course <= 0){
-        cout<<"ERROR : Invalid Number of courses. Existing the program..."<<endl;
-        return;
-    }
 
-    vector<string> course_Name = {};
-
-    for(int i = 1; i <= num_Course; i++){
-        string temp_course_Name;
-        cout<<"Enter a Course Name "<< i <<":";
-        cin>>temp_course_Name;
-        course_Name.push_back(temp_course_Name);
-    }
-
+double sgpaCalculator(int total_num_course){
 
 }
