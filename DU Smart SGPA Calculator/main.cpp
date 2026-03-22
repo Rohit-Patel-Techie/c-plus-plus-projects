@@ -9,7 +9,7 @@ using namespace std;
 
 void Headerdisplay();
 int input_total_course();
-void inputSubjects(vector<Subject> subjects, int totalCourse);
+void inputSubjects(vector<Subject>& subjects, int totalCourse);
 void sgpaCalculator(vector<Subject> subjects);
 
 int main(){
@@ -34,7 +34,7 @@ int main(){
 
 void Headerdisplay(){
     cout<<"\n***********************************************************************\n";
-    cout<<"\tWelcome To DU Academic Performance Calculator(SGPA/CGPA)";
+    cout<<"\tWelcome To DU Academic Performance Calculator(SGPA)";
     cout<<"\n***********************************************************************\n";
 }
 
@@ -45,16 +45,17 @@ int  input_total_course(){
     return num_course;
 }
 
-void inputSubjects(vector<Subject> subjects, int totalCourse){
+void inputSubjects(vector<Subject>& subjects, int totalCourse){
     for(int i = 0; i < totalCourse; i++){
         Subject temp;
 
         cout<<"\n-------------------Course "<< i + 1 <<" ----------------\n";
 
         cout<<"Enter Course Name : ";
-        cin>>temp.name;
+        cin.ignore();
+        getline(cin, temp.name);
 
-        cout<<"Enter Course Credits : ";
+        cout<<"Enter Total Course Credits : ";
         cin>>temp.credit;
 
         if(temp.credit <= 0){
